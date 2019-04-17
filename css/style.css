@@ -1,0 +1,17 @@
+h1{
+     color: orange;
+     background-color: aquamarine; 
+     font-size: 23px;
+     text-decoration: underline;
+     font-family: Arial;
+}  
+a {
+     color :white;
+     background-color: grey;
+     text-decoration: none;
+     font-family: Arial;
+
+}
+a:hover {
+background-color: black;
+}
