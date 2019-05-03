@@ -48,3 +48,6 @@ header nav a:hover {
       color: #333;
       background-color: #FFF;
 }
+#noticias-destacadas img {
+   width: 100%;
+}
