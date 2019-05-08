@@ -61,6 +61,18 @@ header nav a:hover {
 	font-size: 36px;
 	font-weight: 700;
 }
+.noticia {
+	display: flex;
+	flex-direction: row ; /*row . colum. row-reverse. column-reverse*/
+	justify-content: space-around; /* flex-start . center. flex-end .space-between .space-aroun*/ 
+	align-items: center;
+	border-bottom: solid 1px #CCC;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.noticia: last-child {
+	border: none;
+}
 .noticia-img {
 	width: 30%;
 }
@@ -68,7 +80,7 @@ header nav a:hover {
 	width: 100%;
 }
 .noticia-txt {
-	width: 70%;
+	width: 60%;
 }
 .noticia-txt h3 {
 font-weight: 700;
@@ -83,4 +95,13 @@ margin-bottom: 15px;
 }
 .noticia-txt a {
 	color: #000;
+}
+footer {
+	background-color: #333;
+	padding:15px;
+}
+footer p {
+	color: #FFF;
+	font-size: 12px;
+	text-align: center;
 }
