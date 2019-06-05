@@ -28,10 +28,10 @@
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav ml-lg-auto text-center">
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-futbol"></i>Fútbol</a>
+            <a class="nav-link" href="https://es.wikipedia.org/wiki/F%C3%BAtbol" target="_blank"><i class="fas fa-futbol"></i>Fútbol</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-basketball-ball"></i>NBA</a>
+            <a class="nav-link" href="https://es.wikipedia.org/wiki/Baloncesto" target="_blank"><i class="fas fa-basketball-ball"></i>NBA</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="fas fa-baseball-ball"></i>Tenis</a>
@@ -188,19 +188,34 @@ for(let i=0;i< links.length;i++){
     logo.title= "Esto lo puso JS"
   }
     /*Fin de cargar logo*/
-    function validarOpcion (evento) {
+    function validarOpcion (evento){
+
+    event.preventDefault() 
+
     let clickeado= evento.target;
+    console.log ("El parametro magico  es;")
+    console.log(evento)
     let rta= confirm(`Èsta seguro  que desea ir a ${clickeado.innerText}?`)
      
      if(rta) {
      
       alert("Ok, buen viaje...")
+      window.location = clickeado.href
      }
     }
     
+    function obtenerNoticias(){
+      let ajax = new XMLHttpRequest()
+      ajax.open("GET","noticias.json")
+      ajax.onload = function(){
+        if(ajax.status ==200){ //<--Respuesta exitosa!
 
-  
+          console.log(ajax.response)
+        }
 
+      } 
+      ajax.send()
+    }
 
       </script>
   </body>
