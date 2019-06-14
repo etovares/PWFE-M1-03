@@ -4,14 +4,15 @@
   "description": "Servidor web para alojar el proyecto DX",
   "main": "index.js",
   "scripts": {
+   "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/etovares/PWFE-M1-03.git"
   },
-  "author": "etovares\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\"etovares\",",
-  "license": "ISC",
+  "author": "etovares",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/etovares/PWFE-M1-03/issues"
   },

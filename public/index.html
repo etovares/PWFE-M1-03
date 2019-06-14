@@ -170,7 +170,7 @@ for(let i=0;i< links.length;i++){
     }
     
     function obtenerNoticias(){
-  //debugger //<--esto es magico!!
+  
       let ajax = new XMLHttpRequest()
       ajax.open("GET","  https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.clarin.com%2Frss%2Fdeportes%2Ffutbol%2F")
       ajax.onload = function(){
