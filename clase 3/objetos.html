@@ -1,0 +1,80 @@
+<h1>Objetos en Js</h1>
+<script src="producto.class.js"> </script>
+
+
+<script>
+	//function crearProducto(){}
+	const crearProducto = function(n,p,s,d) {//RECIBE DATOS //proceso en que meto los 4 datos - fabrique producto - devuelva
+		let elProducto = new Object()  // Objeto diferido
+		//propiedades: que es
+			elProducto.nombre = n // lo que entra en n, se guarda en nombre
+			elProducto.stock = s // lo que entra en s, se guarda en stock
+			elProducto.precio = p // lo que entra en p, se guarda en precio
+			elProducto.disponible= d // lo que entra en d, se guarda en disponible
+
+			//Metodos (que hace)
+			elProducto.Mostrar = function(){
+				//document.write (`<p> El producto <strong>${elProducto.nombre}</strong> vale ARS ${elProducto.precio} c/ u`)
+				let ficha = document.createElement("ul")
+
+				let contenido =
+								`<li>Nombre: ${elProducto.nombre}</li>
+								<li>Precio: ARS${elProducto.precio}</li>
+								<li>Stock: ${elProducto.stock} unid.</li>
+								<li>disponible: ${elProducto.disponible ? "SI" : "NO"} </li>
+								`
+				ficha.innerHTML = contenido		
+
+				document.body.appendChild( ficha )
+			}
+			elProducto.Descuento = function(desc){
+				let descuento = (elProducto.precio * desc) / 100 //obtengo el desc
+				elProducto.precio -= descuento // aplico desc
+				elProducto.precio = Math.ceil(elProducto.precio) // redondeo el desc
+			}
+	return elProducto
+	}
+
+	//const mostrarProducto = function(n, p){
+		//document.write(`<p>El producto <strong>${n}</strong> vale ARS ${p} c/ u`)
+	
+
+
+/////////////////////////////
+	// variables
+	let nombre = "Café torrado"
+	let stock = 600
+	let precio = 85.65
+	let disponible = false
+
+	//array
+	let unProducto  = ["Jugo de naranja", 450, 15.45, true]
+	//Objetos
+	let otroProducto = { // Objeto literal
+		nombre : "Agua finamente gasificada",
+		stock : 100,
+		precio : 175.60,
+		disponible : true
+	}
+	let tercerProducto = new Object()  // Objeto diferido
+	tercerProducto.nombre = "Alfajor de dulce de leche"
+	tercerProducto.stock = 150
+	tercerProducto.precio = 65.30
+	tercerProducto.disponible= false
+
+	let ultimoProducto = crearProducto("Te rojo", 74.25, 900, true)
+
+	//document.write(`El producto ${tercerProducto.nombre} vale ARS ${tercerProducto.precio} c/ u`)
+
+	//mostrarProducto(otroProducto.nombre, otroProducto.precio)
+	//mostrarProducto(otroProducto.nombre, otroProducto.precio)
+	//mostrarProducto(otroProducto.nombre, otroProducto.precio)
+
+	ultimoProducto.Descuento(30)
+	ultimoProducto.Mostrar()
+
+let objProducto = new Producto("te de limon", 55,200,false)
+let objProductoII = new Producto ("submarino", 67.55, 260, true)
+let objProductoIII = new Producto("Lemon pie", 115.25, 500, true)
+
+</script>

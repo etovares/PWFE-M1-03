@@ -1,0 +1,31 @@
+<h1> Evoluciones de ES5 a ES6</h1>
+<h2> La verdad al descubierto... </h2>
+
+<script>
+	//ES5
+	var nombre = prompt("Ingrese su nombre")
+	//window.nombre = window.prompt ("Ingrese su nombre")
+
+	//ES6
+	let apellido = window.prompt("Ingrese su apellido")
+	const hoy = "2019-06-18"
+
+	//function saludar(){...}
+	//window.saludar = function(){...}
+	//const saludar = function() {
+	const saludar = () => {
+		//ES5
+			//window.alert("Hola soy" + nombre + " " + apellido)
+		
+		//ES6: arrpw functions
+			window.alert(`Hola soy ${nombre} ${apellido}!`)
+	}
+	window.document.querySelector("h1").onclick = saludar
+	window.document.querySelector("h2").onclick = function(){
+		
+		console.log("El objeto this es...")
+		console.log(this)
+
+		this.style.color = "red"
+	}
+</script>
