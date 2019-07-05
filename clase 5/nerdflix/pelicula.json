@@ -1,0 +1,32 @@
+
+[
+{
+    "titulo": "Toy Story 1",
+    "estreno" : 1995,
+    "descripcion": "Woody, el juguete favorito de Andy, se siente amenazado por la inesperada llegada de Buzz Lightyear, el guardían del espacio.",
+    "poster"
+    "trailer"
+},
+{
+    "titulo": "Toy Story 2",
+    "estreno" : 1999,
+    "descripcion": "Andy se va de campamento y deja solos a sus juguetes. Entonces, Al McWhiggin, un compulsivo coleccionista de juguetes valiosos, encuentra a Woody y quiere quedárselo para su colección. Buzz Lightyear y los otros juguetes deberán actuar con rapidez para rescatar a Woody. Durante el rescate se enfrentarán a numerosos peligros y vivirán divertidas situaciones.",
+    "poster"
+    "trailer"
+},
+{
+    "titulo": "Toy Story 3",
+    "estreno" : 2010,
+    "descripcion": "Cuando su dueño Andy se prepara para ir a la universidad, el vaquero Woody, el astronauta Buzz y el resto de sus amigos juguetes comienzan a preocuparse por su incierto futuro. Todos acaban en una guardería donde comenzarán una serie de trepidantes y divertidas aventuras.",
+    "poster"
+    "trailer"
+},
+{
+    "titulo": "Toy Story 4",
+    "estreno" : 2019,
+    "descripcion": "Woody siempre ha tenido claro cuál es su labor en el mundo y cuál es su prioridad: cuidar a su dueño, ya sea Andy o Bonnie. Sin embargo, Woody descubrirá lo grande que puede ser el mundo para un juguete cuando Forky se convierta en su nuevo compañero de habitación. Los juguetes se embarcarán en una aventura de la que no se olvidarán jamás.",
+    "poster"
+    "trailer"
+},
+
+]
