@@ -8,7 +8,7 @@ class Pelicula{
 		this.Trailer = tr
 		
 		}
-		Mostrar() {
+	Mostrar() {
       //1)capturar elemento (y clonarlo)
 
       let elemento = document.querySelector(".pelicula").cloneNode(true)
@@ -30,6 +30,60 @@ class Pelicula{
 		
 		}
 	}
+static parse(data){
+		console.log("Ahora debería convertir Object en Producto")
+		data = JSON.parse(data)
 
-	
+		if (data instanceof Array){ // hay muchos objetos?
+  /*Vieja Forma
+		/*	let peliculas = new Array()
+			data.forEach(item => {
+				let pelicula = new Pelicula(
+                    item.idPelicula,
+					item.Titulo, 
+					item.Estreno,
+					item.Descripcion, 
+					item.Poster,
+					item.Trailer,
+
+					)
+				peliculas.push( pelicula )
+
+		})
+			return peliculas */
+       /*Nueva forma*/
+       return = data.map(item =>
+               
+                  new Pelicula(
+                    item.idPelicula,
+					item.Titulo, 
+					item.Estreno,
+					item.Descripcion, 
+					item.Poster,
+	      			item.Trailer
+         )
+           
+       )
+		} else if( data instanceof Object){// hay un solo object?
+      
+        return new Pelicula(
+           
+            data.idPelicula,
+            data.Titulo,
+            data.Estreno,
+            data.Descripcion, 
+            data.Poster
+            data.Trailer,
+            
+            )
+		
+        return producto
+		} else {// no hay ningun object (no sirve)
+
+        return null
+
+	}
+
+	}
+
    

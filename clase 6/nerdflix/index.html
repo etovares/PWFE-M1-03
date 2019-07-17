@@ -21,7 +21,7 @@
 			</div>
 			<div class="row text-center" id="peliculas">
 
-				<div class="col-md-3 col-sm-4 pelicula hide">
+				<div class="col-md-3 col-sm-4 hide pelicula">
 					<div class="thumbnail">
 						<img src="img/sin-foto.jpg" alt="">
 						<div class="caption">
@@ -53,35 +53,38 @@
 		</div>
 		<script src="js/pelicula.class.js"></script>
 		<script>
-       /* let unaPelicula =  new Pelicula("Iron Man", 2008, "El Hombre de Hierro", "ironman.jpg","https://www.youtube.com/watch?v=opL2ADRqBDM") 
-        let otraPelicula = new Pelicula("Iron Man 3", 2008, "El Hombre de Hierro", "ironman.jpg","https://www.youtube.com/watch?v=opL2ADRqBDM") 
-
-     unaPelicula.Mostrar()
-     otraPelicula.Mostrar()
-     */
-     let ajax = new XMLHttpRequest()
-     ajax.open ("GET","https://api.myjson.com/bins/fiuhw")
-     ajax.onload = function (){
-     	if(this.status==200) {
-     		//hacer magia
-     		let marvel = Pelicula.parse(this.response)
-     		localStorage.setItem("_peliculas",this.response)
-     		//persistencia (en JS)
-     		//1) Local Strorge
-            //2) Session Storage
-
-          //localStorage.setItem()
-          //localStorage.getItem()
-          //localStorage.removeItem()
-          //localStorage.clear()
-     	}
-     }
-     ajax.send()
-
+			/*
+			let unaPelicula = new Pelicula("Iron Man", 2008, "El Hombre de Hierro", "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_.jpg", "https://www.youtube.com/watch?v=8hYlB38asDY")
+			
+			let otraPelicula = new Pelicula("Captain America - Civil War", 2016, "Cap. vs Stark", "https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_.jpg", "https://www.youtube.com/watch?v=FkTybqcX-Yo")
+			unaPelicula.Mostrar()
+			otraPelicula.Mostrar()
+			*/
+			
+			// PROMESAS EN JS //
+			let compromiso = new Promise(function(ok, error){ //<-- Accion ppal. asincronica...
+				if( !localStorage.getItem("_peliculas") ){ //<-- Si NO hay un localStorage...
+					/****** Inicio AJAX ******/
+					let ajax = new XMLHttpRequest()
+					ajax.open("GET", "https://api.myjson.com/bins/fiuhw")
+					ajax.onload = function(){
+						if( this.status == 200 ){ //<-- Respuesta satisfactoria!
+							//Hacer magia
+							localStorage.setItem("_peliculas", this.response)
+							ok(this.response) //<-- Cumplir la promesa en el metodo .then()
+						}
+					}
+					ajax.send()
+					/****** Fin de AJAX ******/
+				} else { //<-- Si EFECTIVAMENTE hay un localStorage...
+					ok( localStorage.getItem("_peliculas") )
+				}
+			})
+			compromiso.then(function(data){ //<-- Accion que prometo hacer (si sale bien...)
+				let marvel = Pelicula.parse(data)
+				marvel.forEach( peli => peli.Mostrar() )
+			})
+			//compromiso.catch(???) //<-- Accion que prometo hacer (si sale mal...)
 		</script>
 	</body>
-	
-
-
 </html>
-
