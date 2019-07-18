@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Nerdflix</title>
+		<link rel="shortcut icon" href="img/favicon.ico">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/heroic-features.css">
+		<link rel="stylesheet" href="css/nerdflix.css">
+	</head>
+	<body>
+	    <h1><a class="" href="#"><img src="img/nerdflix.png" class="img-responsive" /></a></h1>
+	
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h3>Ultimos Estrenos</h3>
+				</div>
+			</div>
+			<div class="row text-center" id="peliculas">
+
+				<div class="col-md-3 col-sm-4 hide pelicula">
+					<div class="thumbnail">
+						<img src="img/sin-foto.jpg" alt="">
+						<div class="caption">
+							<h4>TITULO</h4>
+							<p>ESTRENO</p>
+							<p><a href="#playMovie" class="btn btn-primary">Ver ahora</a></p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="container" id="playMovie">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1 class="page-header" id="titulo">TITULO (1900)</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8">
+					<iframe width="750" height="400" src="img/sin-video.jpg" frameborder="0" allowfullscreen></iframe>
+					<h3>Descripcion:</h3>
+					<p id="descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem nobis praesentium eum voluptate temporibus, obcaecati quod aspernatur eius modi recusandae, sequi quae. Provident illo eligendi sequi repellat harum, rerum, animi!</p>
+				</div>
+				<div class="col-md-4">
+					<img id="imagen" class="img-responsive" src="img/sin-foto.jpg" alt="">
+				</div>
+			</div>
+		</div>
+		<script src="js/pelicula.class.js"></script>
+		<script>
+			/*
+			let unaPelicula = new Pelicula("Iron Man", 2008, "El Hombre de Hierro", "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_.jpg", "https://www.youtube.com/watch?v=8hYlB38asDY")
+			
+			let otraPelicula = new Pelicula("Captain America - Civil War", 2016, "Cap. vs Stark", "https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_.jpg", "https://www.youtube.com/watch?v=FkTybqcX-Yo")
+			unaPelicula.Mostrar()
+			otraPelicula.Mostrar()
+			*/
+			
+			// PROMESAS EN JS //
+			let compromiso = new Promise(function(ok, error){ //<-- Accion ppal. asincronica...
+				if( !localStorage.getItem("_peliculas") ){ //<-- Si NO hay un localStorage...
+					/****** Inicio AJAX ******/
+					let ajax = new XMLHttpRequest()
+					ajax.open("GET", "https://api.myjson.com/bins/fiuhw")
+					ajax.onload = function(){
+						if( this.status == 200 ){ //<-- Respuesta satisfactoria!
+							//Hacer magia
+							localStorage.setItem("_peliculas", this.response)
+							ok(this.response) //<-- Cumplir la promesa en el metodo .then()
+						}
+					}
+					ajax.send()
+					/****** Fin de AJAX ******/
+				} else { //<-- Si EFECTIVAMENTE hay un localStorage...
+					ok( localStorage.getItem("_peliculas") )
+				}
+			})
+			compromiso.then(function(data){ //<-- Accion que prometo hacer (si sale bien...)
+				let marvel = Pelicula.parse(data)
+				marvel.forEach( peli => peli.Mostrar() )
+			})
+			//compromiso.catch(???) //<-- Accion que prometo hacer (si sale mal...)
+		</script>
+	</body>
+</html>
