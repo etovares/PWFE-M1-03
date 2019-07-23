@@ -1,0 +1,12 @@
+<script>
+     let ajax = new XMLHttpRequest()
+     ajax.open("GET", "https://api.myjson.com/bins/fiuhw")
+     ajax.onload = function(){
+     	if(this.status ==200){
+     		let peliculas = JSON.parse (this.response)
+     		console.table (peliculas)
+     	}
+     }
+     ajax.send()
+
+</script>
