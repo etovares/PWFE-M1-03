@@ -5,7 +5,12 @@
      	if(this.status ==200){
      		let peliculas = JSON.parse (this.response)
      		console.table (peliculas)
+    
      	}
+ 
+     }
+     ajax.onerror =function(){
+     	console.error("ERROR: La API no esta disponible")
      }
      ajax.send()
 
