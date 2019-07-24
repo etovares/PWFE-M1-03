@@ -1,17 +1,18 @@
 <script>
-     let ajax = new XMLHttpRequest()
-     ajax.open("GET", "https://api.myjson.com/bins/fiuhw")
-     ajax.onload = function(){
-     	if(this.status ==200){
-     		let peliculas = JSON.parse (this.response)
-     		console.table (peliculas)
-    
-     	}
- 
-     }
-     ajax.onerror =function(){
-     	console.error("ERROR: La API no esta disponible")
-     }
-     ajax.send()
+   
+ /*AJAX desde ECMAScrpt 6  **/
+ //Capa 1: obtencion de datos
+  fetch("https://api.myjson.com/bins/fiuhw").then(function(data){
+  //Capa 2: conversion de los datos
+  return data.json()
+  }).then(function(peliculas){
+   
+   //Capa 3: Uso de los datos
+   console.table(peliculas)
+   return peliculas
+  }).then(function(datos){
+   
+   datos.forEach(dato => { console.log(dato)})
 
+  })
 </script>
