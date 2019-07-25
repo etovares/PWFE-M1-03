@@ -26,7 +26,7 @@
         //El this es la pelicula
         console.log(this)
 
-        if(window.auth2.currentUser.get().isSingnedIn()){ 
+        if( window.auth2.currentUser.get().isSignedIn() ){ 
         let reproductor = document.querySelector("#playMovie")
 
         reproductor.querySelector("#titulo").innerText = `${this.Titulo} (${this.Estreno})`
