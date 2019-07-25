@@ -25,6 +25,8 @@
         event.preventDefault()
         //El this es la pelicula
         console.log(this)
+
+        if(window.auth2.currentUser.get().isSingnedIn()){ 
         let reproductor = document.querySelector("#playMovie")
 
         reproductor.querySelector("#titulo").innerText = `${this.Titulo} (${this.Estreno})`
@@ -36,9 +38,16 @@
         	behavior : "smooth",
         	top : reproductor.offsetTop
         })
-        console.log(reproductor)
-        }
+    } else {
+         auth2.signIn().then(function (){
+         	let usuario = auth2.currentUser.get().getBasicProfile()
+         	alert(`Bienvenido ${usuario.getGivenName()}`)
+         })
+
         
+        }
+        console.log(reproductor)
+       } 
 
 		//3) Desocultar el elemento clonado
 			elemento.classList.remove("hide")
