@@ -24,7 +24,7 @@
         //desactivar el hipervinculo
         event.preventDefault()
         //El this es la pelicula
-        console.log(this)
+        
 
         if( window.auth2.currentUser.get().isSignedIn() ){ 
         let reproductor = document.querySelector("#playMovie")
@@ -46,7 +46,7 @@
 
         
         }
-        console.log(reproductor)
+        
        } 
 
 		//3) Desocultar el elemento clonado
@@ -55,7 +55,7 @@
 		//4) Anexar el elemento en el contenedor (padre)
 		document.querySelector("#peliculas").appendChild(elemento)
 
-		console.log( elemento )
+		
 		
 	}
 
