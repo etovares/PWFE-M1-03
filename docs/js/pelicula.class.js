@@ -41,8 +41,16 @@
     } else {
          auth2.signIn().then(function (){
          	let usuario = auth2.currentUser.get().getBasicProfile()
-         	alert(`Bienvenido ${usuario.getGivenName()}`)
+         	//alert(`Bienvenido ${usuario.getGivenName()}`)// body...
+         	document.querySelector("#user-data").classList.remove("hide")
+         	document.querySelector("#user-data strong").innerText = usuario.getGivenName()
+         	document.querySelector("#user-data button").onclick = function  () {
+         		auth2.signOut()
+         		document.querySelector("#user-data").classList.add("hide")
+         		
+         	}
          })
+
 
         
         }
